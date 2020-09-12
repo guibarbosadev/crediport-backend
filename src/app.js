@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('https-localhost');
 const dotenv = require('dotenv');
 const mongodb = require('mongodb');
 const bodyParser = require('body-parser');
@@ -64,7 +64,7 @@ app.delete('/report/:id', async function (req, res) {
         const filterQuery = { _id: mongodb.ObjectID(req.params.id) };
         const result = await reportsCollection().deleteOne(filterQuery);
         const didFindReport = result?.result?.n > 0;
-        
+
         if (didFindReport) {
             res.send('Successfully deleted the report');
         } else {
